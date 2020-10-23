@@ -1,15 +1,10 @@
 {
   "name": "hm-front-next-react-keep-alive",
   "version": "2.5.2",
-  "description": "Package will allow components to maintain their status, to avoid repeated re-rendering.",
-  "author": "Shen Chang + Alex",
+  "description": "",
+  "author": "Unknown",
   "homepage": "https://github.com/nodeswat/hm-front-next-react-keep-alive",
-  "keywords": [
-    "react",
-    "react-router",
-    "keep-alive",
-    "cache"
-  ],
+  "keywords": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nodeswat/hm-front-next-react-keep-alive.git"
@@ -62,7 +57,6 @@
     "babel-loader": "^8.0.5",
     "codecov": "^3.2.0",
     "css-loader": "^2.1.1",
-    "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "html-webpack-plugin": "^3.2.0",
@@ -86,10 +80,5 @@
     "react": ">=16.3.0",
     "react-dom": ">=16.3.0",
     "react-router-dom": ">=5.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
