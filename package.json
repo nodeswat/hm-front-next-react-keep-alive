@@ -1,5 +1,5 @@
 {
-  "name": "hm-front-next-react-keep-alive",
+  "name": "react-keep-alive",
   "version": "2.5.2",
   "description": "Package will allow components to maintain their status, to avoid repeated re-rendering.",
   "author": "Shen Chang + Alex",
