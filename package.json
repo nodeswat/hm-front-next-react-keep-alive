@@ -1,8 +1,8 @@
 {
-  "name": "hm-front-next-react-keep-alive",
+  "name": "hm-front-next-react-keep-alive-fixed",
   "version": "2.5.2",
   "description": "Package will allow components to maintain their status, to avoid repeated re-rendering.",
-  "author": "Shen Chang",
+  "author": "Shen Chang + Alex",
   "homepage": "https://github.com/nodeswat/hm-front-next-react-keep-alive",
   "keywords": [
     "react",
