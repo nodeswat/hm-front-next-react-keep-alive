@@ -46,9 +46,18 @@ export default function changePositionByComment(identification: string, presentP
   }
   elementNodes.push(elementNodes[elementNodes.length - 1].nextSibling as Node);
   elementNodes.unshift(elementNodes[0].previousSibling as Node);
-  // Deleting comment elements when using commet components will result in component uninstallation errors
+  // Deleting comment elements when using comment components will result in component uninstallation errors
   for (let i = elementNodes.length - 1; i >= 0; i--) {
-    presentParentNode.insertBefore(elementNodes[i], commentNode);
+    try {
+      presentParentNode.insertBefore(elementNodes[i], commentNode);
+    } catch (err) {
+      console.error('Try-Catched KeepAlive error', err)
+    }
   }
-  originalParentNode.appendChild(commentNode);
+
+  try {
+    originalParentNode.appendChild(commentNode);
+  } catch (err) {
+    console.error('Try-Catched KeepAlive error', err)
+  }
 }

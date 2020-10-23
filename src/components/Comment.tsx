@@ -25,13 +25,21 @@ class ReactComment extends React.PureComponent<IReactCommentProps> {
     this.commentNode = commentNode;
     this.currentNode = node;
     this.parentNode = node.parentNode as Node;
-    this.parentNode.replaceChild(commentNode, node);
+    try {
+      this.parentNode.replaceChild(commentNode, node);
+    } catch (err) {
+      console.error('Try-Catched KeepAlive error', err)
+    }
     ReactDOM.unmountComponentAtNode(node);
     this.props.onLoaded();
   }
 
   public componentWillUnmount() {
-    this.parentNode.replaceChild(this.currentNode, this.commentNode);
+    try {
+      this.parentNode.replaceChild(this.currentNode, this.commentNode);
+    } catch (err) {
+      console.error('Try-Catched KeepAlive error', err)
+    }
   }
 
   private createComment() {
