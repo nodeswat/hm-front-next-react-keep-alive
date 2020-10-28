@@ -50,7 +50,7 @@ export default function changePositionByComment(identification: string, presentP
   for (let i = elementNodes.length - 1; i >= 0; i--) {
     try {
       if (elementNodes[i] && elementNodes[i] instanceof Node) {
-        console.log('2', elementNodes[i], commentNode)
+        console.error('2', elementNodes[i], commentNode)
         presentParentNode.insertBefore(elementNodes[i], commentNode);
       }
     } catch (err) {

@@ -138,7 +138,6 @@ class KeepAlive extends React.PureComponent<IKeepAliveInnerProps> {
       }
       try {
         if (this.ref && this.ref instanceof Node) {
-          console.log('1', this.ref, this.refNextSibling)
           this.refNextSibling.parentNode.insertBefore(this.ref, this.refNextSibling);
         }
       } catch (err) {
