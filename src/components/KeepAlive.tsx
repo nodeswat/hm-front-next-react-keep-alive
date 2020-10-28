@@ -116,7 +116,9 @@ class KeepAlive extends React.PureComponent<IKeepAliveInnerProps> {
         }
       }
       try {
-        this.ref.parentNode.removeChild(this.ref);
+        if (this.ref.parentNode.contains(this.ref)) {
+          this.ref.parentNode.removeChild(this.ref);
+        }
       } catch (err) {
         console.error('Try-Catched KeepAlive error', err)
       }
