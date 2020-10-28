@@ -3,6 +3,7 @@ import AsyncComponent from './AsyncComponent';
 import {START_MOUNTING_DOM, LIFECYCLE} from './Provider';
 import keepAlive, {COMMAND} from '../utils/keepAliveDecorator';
 import changePositionByComment from '../utils/changePositionByComment';
+import { isHTMLElement } from '../utils/helpers';
 
 interface IKeepAliveProps {
   key?: string;
@@ -137,7 +138,7 @@ class KeepAlive extends React.PureComponent<IKeepAliveInnerProps> {
         }
       }
       try {
-        if (this.ref && this.ref instanceof Node) {
+        if (this.ref && isHTMLElement(this.ref)) {
           this.refNextSibling.parentNode.insertBefore(this.ref, this.refNextSibling);
         }
       } catch (err) {
