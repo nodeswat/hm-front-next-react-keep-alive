@@ -84,7 +84,9 @@ export default class KeepAliveProvider extends React.PureComponent<IKeepAlivePro
   public componentWillUnmount() {
     this.existed = false;
     try {
-      document.body.removeChild(this.storeElement);
+      if (document.body.contains(this.storeElement)) {
+        document.body.removeChild(this.storeElement);
+      }
     } catch (err) {
       console.error('Try-Catched KeepAlive error', err)
     }
