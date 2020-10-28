@@ -49,7 +49,9 @@ export default function changePositionByComment(identification: string, presentP
   // Deleting comment elements when using comment components will result in component uninstallation errors
   for (let i = elementNodes.length - 1; i >= 0; i--) {
     try {
-      presentParentNode.insertBefore(elementNodes[i], commentNode);
+      if (elementNodes[i] && elementNodes[i] instanceof Node) {
+        presentParentNode.insertBefore(elementNodes[i], commentNode);
+      }
     } catch (err) {
       console.error('Try-Catched KeepAlive error', err)
     }

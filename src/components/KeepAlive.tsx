@@ -110,7 +110,9 @@ class KeepAlive extends React.PureComponent<IKeepAliveInnerProps> {
         const child = childNodes[0];
         this.childNodes.push(child);
         try {
-          this.ref.parentNode.insertBefore(child, this.ref.nextSibling);
+          if (child && child instanceof Node) {
+            this.ref.parentNode.insertBefore(child, this.ref.nextSibling);
+          }
         } catch (err) {
           console.error('Try-Catched KeepAlive error', err)
         }
@@ -135,7 +137,9 @@ class KeepAlive extends React.PureComponent<IKeepAliveInnerProps> {
         }
       }
       try {
-        this.refNextSibling.parentNode.insertBefore(this.ref, this.refNextSibling);
+        if (this.ref && this.ref instanceof Node) {
+          this.refNextSibling.parentNode.insertBefore(this.ref, this.refNextSibling);
+        }
       } catch (err) {
         console.error('Try-Catched KeepAlive error', err)
       }
