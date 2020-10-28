@@ -35,6 +35,21 @@ function findComment(node: Node, identification: string): Node | undefined {
   }
 }
 
+function isElement (obj: any) {
+  try {
+    //Using W3 DOM2 (works for FF, Opera and Chrome)
+    return obj instanceof HTMLElement;
+  }
+  catch(e){
+    //Browsers not supporting W3 DOM2 don't have HTMLElement and
+    //an exception is thrown and we end up here. Testing some
+    //properties that all elements have (works on IE7)
+    return (typeof obj==="object") &&
+      (obj.nodeType===1) && (typeof obj.style === "object") &&
+      (typeof obj.ownerDocument ==="object");
+  }
+}
+
 export default function changePositionByComment(identification: string, presentParentNode: Node, originalParentNode: Node) {
   if (!presentParentNode || !originalParentNode) {
     return;
@@ -49,8 +64,7 @@ export default function changePositionByComment(identification: string, presentP
   // Deleting comment elements when using comment components will result in component uninstallation errors
   for (let i = elementNodes.length - 1; i >= 0; i--) {
     try {
-      if (elementNodes[i] && elementNodes[i] instanceof Node) {
-        console.error('2', elementNodes[i], commentNode)
+      if (elementNodes[i] && isElement(elementNodes[i])) {
         presentParentNode.insertBefore(elementNodes[i], commentNode);
       }
     } catch (err) {
